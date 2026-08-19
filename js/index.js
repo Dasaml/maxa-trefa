@@ -20,13 +20,13 @@
   };
 
   /* ==========================================================================
-     2. SAMOSTATNÝ A FUNKČNÍ ODPOČET ČASU
+     2. SAMOSTATNÝ A PLNĚ NEZÁVISLÝ ODPOČET ČASU
   ========================================================================== */
   function initCountdowns() {
     const countdownItems = document.querySelectorAll('.countdown-item');
+    if (countdownItems.length === 0) return;
 
     countdownItems.forEach(item => {
-      // Načtení data přímo z atributu data-end-date
       const targetDateStr = item.getAttribute('data-end-date');
       if (!targetDateStr) return;
 
@@ -59,20 +59,23 @@
         numbers[3].textContent = String(seconds).padStart(2, '0');
       }
 
-      // Spustit ihned a pak každou sekundu
       updateTimer();
       setInterval(updateTimer, 1000);
     });
   }
 
-  /* ==========================================================================
-     3. INICIALIZACE VŠECH MODULŮ
-  ========================================================================== */
-  function init() {
-    // 1. Spustíme odpočet
+  // Spustíme odpočet ihned nezávisle na zbytku
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCountdowns);
+  } else {
     initCountdowns();
+  }
 
-    // 2. Efekt pro scrollující navbar
+  /* ==========================================================================
+     3. INICIALIZACE ZBYTKU WEBU (MODALY, NAVIGACE, KARTY)
+  ========================================================================== */
+  function initMain() {
+    // 1. Efekt pro scrollující navbar
     const selectNavbar = select('#navbar');
     if (selectNavbar) {
       const navbarScrolled = () => {
@@ -86,7 +89,7 @@
       onscroll(window, navbarScrolled);
     }
 
-    // 3. Aktivní položka v navigaci
+    // 2. Aktivní položka v navigaci
     const navbarlinks = select('#navbar .scrollto', true);
     const navbarlinksActive = () => {
       let position = window.scrollY + 200;
@@ -104,7 +107,7 @@
     navbarlinksActive();
     onscroll(window, navbarlinksActive);
 
-    // 4. Mobilní menu a kotvy
+    // 3. Mobilní menu a kotvy
     const menu = select(".menu");
     const hamburger = select(".hamburger");
     const menuIcon = select(".svg-menu");
@@ -144,7 +147,7 @@
       });
     });
 
-    // 5. Řízení karet výzev
+    // 4. Řízení karet výzev
     const cards = select(".challenge-card", true);
     if (cards.length > 0) {
       const today = new Date();
@@ -205,7 +208,7 @@
       }
     }
 
-    // 6. Modal a Formulář
+    // 5. Modal a Formulář
     const modal = select("#vote-modal");
     const modalCloseBtn = select("#modal-close");
     const candidateText = select("#selected-candidate");
@@ -333,9 +336,10 @@
     }
   }
 
+  // Spuštění zbytku skriptů po načtení DOM
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", initMain);
   } else {
-    init();
+    initMain();
   }
 })();
