@@ -174,30 +174,30 @@
       </div>
 
       <!-- Prostřední blok: Odpočet -->
-      <div class="info-bar-item countdown-item">
-        <span class="countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
-        <div class="countdown-timer">
-          <div class="time-unit">
-            <span class="number">05</span>
-            <span class="unit-label">DNÍ</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="number">12</span>
-            <span class="unit-label">HODIN</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="number">34</span>
-            <span class="unit-label">MINUT</span>
-          </div>
-          <span class="separator">:</span>
-          <div class="time-unit">
-            <span class="number">18</span>
-            <span class="unit-label">VTEŘIN</span>
-          </div>
-        </div>
-      </div>
+<div class="info-bar-item countdown-item" data-end-date="2026-12-31T23:59:59">
+  <span class="countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
+  <div class="countdown-timer">
+    <div class="time-unit">
+      <span class="number">00</span>
+      <span class="unit-label">DNÍ</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-unit">
+      <span class="number">00</span>
+      <span class="unit-label">HODIN</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-unit">
+      <span class="number">00</span>
+      <span class="unit-label">MINUT</span>
+    </div>
+    <span class="separator">:</span>
+    <div class="time-unit">
+      <span class="number">00</span>
+      <span class="unit-label">VTEŘIN</span>
+    </div>
+  </div>
+</div>
 
       <!-- Pravý blok: Výzva -->
       <div class="info-bar-item">
@@ -287,7 +287,7 @@
     </div>
   </section>
 
-  <section class="challenges-section">
+<section class="challenges-section">
   <div class="challenges-container">
     
     <!-- Nadpis s linkami -->
@@ -299,8 +299,8 @@
 
     <div class="challenges-grid">
       
-      <!-- VÝZVA 1 -->
-      <div class="challenge-card active" data-date="2026-09-30">
+      <!-- VÝZVA 1 (Ukázka s nastaveným koncem a vítězem) -->
+      <div class="challenge-card active" data-date="2026-08-01" data-end-date="2026-08-19T23:59:59" data-winner="PATRIK BERGER">
         <div class="card-badge">VÝZVA 1</div>
         <h3 class="challenge-type">GOLFOVÁ VÝZVA</h3>
         <span class="publish-date">UVĚŘEJNĚNÍ: 30. 9.</span>
@@ -334,7 +334,8 @@
             <span>RADEK<br>ŠTĚPÁNEK</span>
           </div>
 
-          <div class="vote-section">
+          <!-- HLASOVÁNÍ -->
+          <div class="vote-section voting-area">
             <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
             <div class="vote-buttons">
               <button class="btn-vote btn-purple">PATRIK<br>BERGER</button>
@@ -342,7 +343,8 @@
             </div>
           </div>
 
-          <div class="card-countdown">
+          <!-- ODPOČÍTÁVÁNÍ -->
+          <div class="card-countdown countdown-area">
             <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
             <div class="card-timer">
               <span>05</span> : <span>12</span> : <span>34</span> : <span>18</span>
@@ -351,11 +353,14 @@
               <span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span>
             </div>
           </div>
+
+          <!-- OBLAST PRO UKONČENÉ HLASOVÁNÍ (vkládá se dynamicky / zobrazí se po konci) -->
+          <div class="ended-area" style="display: none;"></div>
         </div>
       </div>
 
       <!-- VÝZVA 2 -->
-      <div class="challenge-card locked" data-date="2026-10-15">
+      <div class="challenge-card locked" data-date="2026-10-15" data-end-date="2026-10-25T23:59:59" data-winner="">
         <div class="card-badge">VÝZVA 2</div>
         <h3 class="challenge-type">TENISOVÁ VÝZVA</h3>
         <span class="publish-date">UVĚŘEJNĚNÍ: ŘÍJEN</span>
@@ -387,7 +392,7 @@
             <span>HRÁČ<br>DVA</span>
           </div>
 
-          <div class="vote-section">
+          <div class="vote-section voting-area">
             <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
             <div class="vote-buttons">
               <button class="btn-vote btn-purple">HRÁČ<br>JEDNA</button>
@@ -395,7 +400,7 @@
             </div>
           </div>
 
-          <div class="card-countdown">
+          <div class="card-countdown countdown-area">
             <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
             <div class="card-timer">
               <span>00</span> : <span>00</span> : <span>00</span> : <span>00</span>
@@ -404,11 +409,13 @@
               <span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span>
             </div>
           </div>
+
+          <div class="ended-area" style="display: none;"></div>
         </div>
       </div>
 
       <!-- VÝZVA 3 -->
-      <div class="challenge-card locked" data-date="2026-11-01">
+      <div class="challenge-card locked" data-date="2026-11-01" data-end-date="2026-11-10T23:59:59" data-winner="">
         <div class="card-badge">VÝZVA 3</div>
         <h3 class="challenge-type">DALŠÍ VÝZVA</h3>
         <span class="publish-date">UVĚŘEJNĚNÍ: LISTOPAD</span>
@@ -434,23 +441,24 @@
             <span>HRÁČ<br>JEDNA</span>
             <span>HRÁČ<br>DVA</span>
           </div>
-          <div class="vote-section">
+          <div class="vote-section voting-area">
             <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
             <div class="vote-buttons">
               <button class="btn-vote btn-purple">HRÁČ<br>JEDNA</button>
               <button class="btn-vote btn-outline">HRÁČ<br>DVA</button>
             </div>
           </div>
-          <div class="card-countdown">
+          <div class="card-countdown countdown-area">
             <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
             <div class="card-timer"><span>00</span> : <span>00</span> : <span>00</span> : <span>00</span></div>
             <div class="card-timer-units"><span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span></div>
           </div>
+          <div class="ended-area" style="display: none;"></div>
         </div>
       </div>
 
       <!-- VÝZVA 4 -->
-      <div class="challenge-card locked" data-date="2026-12-01">
+      <div class="challenge-card locked" data-date="2026-12-01" data-end-date="2026-12-10T23:59:59" data-winner="">
         <div class="card-badge">VÝZVA 4</div>
         <h3 class="challenge-type">DALŠÍ VÝZVA</h3>
         <span class="publish-date">UVĚŘEJNĚNÍ: PROSINEC</span>
@@ -476,23 +484,24 @@
             <span>HRÁČ<br>JEDNA</span>
             <span>HRÁČ<br>DVA</span>
           </div>
-          <div class="vote-section">
+          <div class="vote-section voting-area">
             <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
             <div class="vote-buttons">
               <button class="btn-vote btn-purple">HRÁČ<br>JEDNA</button>
               <button class="btn-vote btn-outline">HRÁČ<br>DVA</button>
             </div>
           </div>
-          <div class="card-countdown">
+          <div class="card-countdown countdown-area">
             <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
             <div class="card-timer"><span>00</span> : <span>00</span> : <span>00</span> : <span>00</span></div>
             <div class="card-timer-units"><span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span></div>
           </div>
+          <div class="ended-area" style="display: none;"></div>
         </div>
       </div>
 
       <!-- VÝZVA 5 -->
-      <div class="challenge-card locked" data-date="2027-02-01">
+      <div class="challenge-card locked" data-date="2027-02-01" data-end-date="2027-02-10T23:59:59" data-winner="">
         <div class="card-badge">VÝZVA 5</div>
         <h3 class="challenge-type">DALŠÍ VÝZVA</h3>
         <span class="publish-date">UVĚŘEJNĚNÍ: ÚNOR</span>
@@ -518,18 +527,19 @@
             <span>HRÁČ<br>JEDNA</span>
             <span>HRÁČ<br>DVA</span>
           </div>
-          <div class="vote-section">
+          <div class="vote-section voting-area">
             <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
             <div class="vote-buttons">
               <button class="btn-vote btn-purple">HRÁČ<br>JEDNA</button>
               <button class="btn-vote btn-outline">HRÁČ<br>DVA</button>
             </div>
           </div>
-          <div class="card-countdown">
+          <div class="card-countdown countdown-area">
             <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA:</span>
             <div class="card-timer"><span>00</span> : <span>00</span> : <span>00</span> : <span>00</span></div>
             <div class="card-timer-units"><span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span></div>
           </div>
+          <div class="ended-area" style="display: none;"></div>
         </div>
       </div>
 
@@ -657,16 +667,31 @@
     <button id="modal-close" class="modal-close" aria-label="Zavřít">&times;</button>
     <h3 class="modal-title">Hlasovat v soutěži</h3>
     <p class="modal-subtitle">Vybrali jste: <strong id="selected-candidate"></strong></p>
-    
+
+    <!-- ZDE JE PŘIDANÉ POLE PRO ZPRÁVY -->
+    <div id="modal-msg" class="modal-msg" style="display: none;"></div>
+
     <form id="vote-form" class="modal-form">
       <input type="hidden" id="candidate-input" name="candidate" value="">
       
       <div class="form-group">
-        <label for="voter-email">Váš e-mail</label>
+        <label for="user-name">VAŠE JMÉNO A PŘÍJMENÍ</label>
+        <input type="text" id="user-name" name="fullname" placeholder="Jan Novák" required>
+      </div>
+
+      <div class="form-group">
+        <label for="voter-email">VÁŠ E-MAIL</label>
         <input type="email" id="voter-email" name="email" placeholder="vás@email.cz" required>
       </div>
 
-      <button type="submit" class="btn-submit">ODESLAT HLAS</button>
+      <div class="form-group form-checkbox">
+        <label class="checkbox-label">
+          <input type="checkbox" id="terms-agree" name="terms" required>
+          <span>Souhlasím se <a href="#" target="_blank">zpracováním osobních údajů</a> a pravidly soutěže.</span>
+        </label>
+      </div>
+
+      <button type="submit" id="btn-submit" class="btn-submit">ODESLAT HLAS</button>
     </form>
   </div>
 </div>
