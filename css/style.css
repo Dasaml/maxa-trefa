@@ -1273,6 +1273,19 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   transform: translateY(-2px);
 }
 
+#vote-modal.is-open {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Pokud máš animaci opacity na .modal-overlay, přidej i toto: */
+#vote-modal.is-open .modal-overlay {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 
 
 
