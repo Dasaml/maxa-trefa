@@ -1274,16 +1274,36 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 #vote-modal.is-open {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* Pokud máš animaci opacity na .modal-overlay, přidej i toto: */
 #vote-modal.is-open .modal-overlay {
-  opacity: 1 !important;
-  pointer-events: auto !important;
+  opacity: 1;
+  pointer-events: auto;
+}
+#vote-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  
+  /* Vycentrování obsahu modalu na střed obrazovky */
+  display: none; /* Skrytý v základu */
+  align-items: center;
+  justify-content: center;
+  
+  background-color: rgba(0, 0, 0, 0.7); /* Poloprůhledné tmavé pozadí */
+}
+
+/* Když JS přidá třídu .is-open, modal se zobrazí na středu */
+#vote-modal.is-open {
+  display: flex;
 }
 
 
