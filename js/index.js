@@ -23,17 +23,17 @@
      2. SAMOSTATNÝ A PLNĚ NEZÁVISLÝ ODPOČET ČASU
   ========================================================================== */
   function initCountdowns() {
-    const countdownItems = document.querySelectorAll('.countdown-item');
+    const countdownItems = document.querySelectorAll('.countdown-item, .card-countdown');
     if (countdownItems.length === 0) return;
 
     countdownItems.forEach(item => {
-      const targetDateStr = item.getAttribute('data-end-date');
+      const targetDateStr = item.getAttribute('data-end-date') || item.getAttribute('data-date');
       if (!targetDateStr) return;
 
       const targetTime = new Date(targetDateStr).getTime();
       if (isNaN(targetTime)) return;
 
-      const numbers = item.querySelectorAll('.number');
+      const numbers = item.querySelectorAll('.number, .card-timer span');
       if (numbers.length < 4) return;
 
       function updateTimer() {
@@ -64,7 +64,6 @@
     });
   }
 
-  // Spustíme odpočet ihned nezávisle na zbytku
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initCountdowns);
   } else {
@@ -75,7 +74,7 @@
      3. INICIALIZACE ZBYTKU WEBU (MODALY, NAVIGACE, KARTY)
   ========================================================================== */
   function initMain() {
-    // 1. Efekt pro scrollující navbar
+
     const selectNavbar = select('#navbar');
     if (selectNavbar) {
       const navbarScrolled = () => {
@@ -89,7 +88,6 @@
       onscroll(window, navbarScrolled);
     }
 
-    // 2. Aktivní položka v navigaci
     const navbarlinks = select('#navbar .scrollto', true);
     const navbarlinksActive = () => {
       let position = window.scrollY + 200;
@@ -107,7 +105,6 @@
     navbarlinksActive();
     onscroll(window, navbarlinksActive);
 
-    // 3. Mobilní menu a kotvy
     const menu = select(".menu");
     const hamburger = select(".hamburger");
     const menuIcon = select(".svg-menu");
@@ -146,8 +143,7 @@
         }
       });
     });
-
-    // 4. Řízení karet výzev
+    
     const cards = select(".challenge-card", true);
     if (cards.length > 0) {
       const today = new Date();
@@ -164,7 +160,7 @@
           const compareToday = new Date(today);
           compareToday.setHours(0, 0, 0, 0);
 
-          card.classList.remove("active", "locked", "unlocked");
+          card.classList.remove("active", "locked", "unlocked", "ended");
 
           if (compareToday >= publishDate) {
             card.classList.add("unlocked");
@@ -177,10 +173,15 @@
         if (endDateAttr) {
           const endDate = new Date(endDateAttr);
           const votingArea = card.querySelector(".voting-area");
+          const countdownArea = card.querySelector(".card-countdown");
           let endedArea = card.querySelector(".ended-area");
 
           if (today >= endDate) {
             if (votingArea) votingArea.style.display = "none";
+            if (countdownArea) countdownArea.style.display = "none";
+
+            card.classList.remove("active");
+            card.classList.add("ended");
 
             if (!endedArea) {
               endedArea = document.createElement("div");
@@ -190,9 +191,9 @@
 
             endedArea.style.display = "block";
             endedArea.innerHTML = `
-              <div class="status-ended-box" style="text-align: center; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 8px; margin-top: 10px;">
-                <h4 style="margin: 0 0 5px 0; color: #ff4d4d; text-transform: uppercase;">Hlasování ukončeno</h4>
-                ${winnerAttr ? `<p style="margin: 0; font-weight: bold; font-size: 1.1em;">VÍTĚZ: <span style="color: #ffb703;">${winnerAttr}</span></p>` : ''}
+              <div class="status-ended-box" style="text-align: center; padding: 20px 15px; background: rgba(18, 10, 35, 0.85); backdrop-filter: blur(6px); border-radius: 12px; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h4 style="margin: 0 0 8px 0; color: #ff4d4d; text-transform: uppercase; font-size: 1.1em; letter-spacing: 1px;">Hlasování ukončeno</h4>
+                ${winnerAttr ? `<p style="margin: 0; font-weight: bold; font-size: 1.2em; color: #fff;">VÍTĚZ: <span style="color: #ffb703;">${winnerAttr}</span></p>` : ''}
               </div>
             `;
           }
@@ -200,15 +201,19 @@
       });
 
       if (activeCardTarget) {
-        activeCardTarget.classList.remove("locked");
-        activeCardTarget.classList.add("active");
+        if (!activeCardTarget.classList.contains("ended")) {
+          activeCardTarget.classList.remove("locked");
+          activeCardTarget.classList.add("active");
+        }
       } else if (cards[0]) {
-        cards[0].classList.remove("locked");
-        cards[0].classList.add("active");
+        if (!cards[0].classList.contains("ended")) {
+          cards[0].classList.remove("locked");
+          cards[0].classList.add("active");
+        }
       }
     }
 
-    // 5. Modal a Formulář
+    // Modal a Formulář
     const modal = select("#vote-modal");
     const modalCloseBtn = select("#modal-close");
     const candidateText = select("#selected-candidate");
@@ -220,20 +225,15 @@
       if (!modalMsg) return;
       modalMsg.textContent = text;
       modalMsg.style.display = "block";
-      modalMsg.style.padding = "10px 15px";
+      modalMsg.style.padding = "0px";
       modalMsg.style.marginBottom = "15px";
-      modalMsg.style.borderRadius = "6px";
       modalMsg.style.fontSize = "14px";
       modalMsg.style.textAlign = "center";
 
       if (isError) {
-        modalMsg.style.backgroundColor = "rgba(255, 77, 77, 0.15)";
         modalMsg.style.color = "#ff4d4d";
-        modalMsg.style.border = "1px solid #ff4d4d";
       } else {
-        modalMsg.style.backgroundColor = "rgba(46, 204, 113, 0.15)";
         modalMsg.style.color = "#2ecc71";
-        modalMsg.style.border = "1px solid #2ecc71";
       }
     }
 
@@ -245,6 +245,29 @@
 
     function openModal(candidateName) {
       if (!modal) return;
+
+      const activeCard = select(".challenge-card.active");
+      const challengeId = activeCard ? (activeCard.getAttribute("data-id") || "global-vote") : "global-vote";
+
+      const selectionWrapper = candidateText ? candidateText.parentElement : null;
+
+      if (localStorage.getItem(`voted_${challengeId}`) === "true") {
+        modal.classList.add("is-open");
+        modal.style.display = "flex";
+        if (voteForm) voteForm.style.display = "none";
+        
+        if (selectionWrapper) {
+          selectionWrapper.style.display = "none";
+        }
+
+        showModalMsg("Z tohoto zařízení již byl hlas v této výzvě odeslán. Děkujeme!", false);
+        return;
+      }
+
+      if (selectionWrapper) {
+        selectionWrapper.style.display = "block";
+      }
+
       const cleanName = candidateName ? candidateName.replace(/\s+/g, ' ').trim() : '';
       if (candidateText) candidateText.textContent = cleanName;
       if (candidateInput) candidateInput.value = cleanName;
@@ -264,6 +287,11 @@
       if (voteForm) {
         voteForm.reset();
         voteForm.style.display = "block";
+      }
+
+      const selectionWrapper = candidateText ? candidateText.parentElement : null;
+      if (selectionWrapper) {
+        selectionWrapper.style.display = "block";
       }
     }
 
@@ -326,7 +354,12 @@
           termsAccepted: termsCheckbox ? termsCheckbox.checked : false
         };
 
+        const activeCard = select(".challenge-card.active");
+        const challengeId = activeCard ? (activeCard.getAttribute("data-id") || "global-vote") : "global-vote";
+        localStorage.setItem(`voted_${challengeId}`, "true");
+
         voteForm.style.display = "none";
+
         showModalMsg(`Děkujeme za hlas pro kandidáta: ${formData.candidate}!`, false);
         
         setTimeout(() => {
@@ -336,7 +369,6 @@
     }
   }
 
-  // Spuštění zbytku skriptů po načtení DOM
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initMain);
   } else {
