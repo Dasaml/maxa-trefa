@@ -30,7 +30,7 @@ body.maxa-trefa {
 	font-style: normal;
 	line-height: 23px;
 	color: #000;
-	background-color: #290064;
+	background-color: #6000BF;
 	scroll-behavior: smooth;
 }
 .maxa-trefa .title-h1 {
@@ -102,7 +102,7 @@ body.maxa-trefa {
 	z-index: 2;
 }
 .maxa-trefa .btn-button {
-	background-color: #ffb233;
+	background-color: #FFB233;
 	border-width: 0;
 	min-width: 180px;
 	max-width: fit-content;
@@ -125,10 +125,10 @@ body.maxa-trefa {
 	transition: all .3s ease-in-out;
 }
 .maxa-trefa .btn-button:hover {
-	background-color: #ffb233e6;
+	background-color: #FFB233e6;
 }
 .maxa-trefa .bg-orange {
-	background-color: #ffb233;
+	background-color: #FFB233;
 }
 .maxa-trefa .bg-violet-teal {
 background: #00CCCC;
@@ -141,7 +141,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	background-color: #00b2b2;
 }
 .maxa-trefa .orange-color {
-	color: #ffb233;
+	color: #FFB233;
 }
 .maxa-trefa .teal-color {
 	color: #00cccc;
@@ -213,7 +213,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	left: 0;
 	right: 0;
 	bottom: 0;
-	z-index: 3;
+	z-index: 100;
 }
 /* Site header end */
 
@@ -266,7 +266,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 .maxa-trefa .navigation-wrapper-mobile {
 	display: block;
-	position: fixed;
+	position: relative;
 	height: auto;
 	width: 100%;
 	z-index: 99;
@@ -376,7 +376,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 .maxa-trefa .navigation-wrapper-desktop nav .orange-color,
 .maxa-trefa .navigation-wrapper-mobile nav .orange-color {
-	color: #ffb233;
+	color: #FFB233;
 }
 .maxa-trefa .navigation-wrapper-desktop nav a,
 .maxa-trefa .navigation-wrapper-mobile nav a {
@@ -431,17 +431,13 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	scroll-margin-top: 50px;
 }
 
-
-
-/* main */
+/* MAIN */
 /* --- HERO SECTION --- */
-
-/* Stylace přímo pro sekci (vlož na koniec CSS) */
 
 .maxa-trefa .hero-section {
 	width: 100%;
 	padding: 40px 0 35px 0;
-	background: #18003c linear-gradient(180deg, #2a0066 0%, #120030 100%);
+	background-color: #6000BF;
 	position: relative;
 	overflow: hidden;
 }
@@ -450,20 +446,21 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	margin: 0 auto;
 	padding: 0 20px;
 	display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	align-items: flex-end;
-	justify-content: space-between;
+	
 	gap: 0;
 }
 
-/* Levý blok */
 .maxa-trefa .hero-content {
-	flex: 1 1 400px;
-	max-width: 440px;
+	flex: 1 1 600px;
+	max-width: 600px;
 	padding-bottom: 60px;
 }
 
 .maxa-trefa .badge-challenge {
-	color: #ffb233;
+	color: #FFB233;
 	font-weight: 700;
 	font-size: 1.2rem;
 	letter-spacing: 1.5px;
@@ -473,17 +470,17 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 
 .maxa-trefa .hero-title {
 	color: #ffffff;
-	font-size: 2.2rem;
+	font-size: 1.3rem;
 	font-weight: 700;
-	line-height: 1.15;
+	line-height: 1.4;
 	margin-bottom: 25px;
 	text-transform: uppercase;
-	text-align: left;
+	text-align: center;
 	text-shadow: none;
 }
 
 .maxa-trefa .title-highlight {
-	color: #a382e8;
+	color: #33007B;
 }
 
 .maxa-trefa .hero-description {
@@ -491,31 +488,30 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	font-size: 1.05rem;
 	line-height: 1.5;
 	font-weight: 400;
+	max-width: 400px;
 }
 
-/* Prostřední postava */
 .maxa-trefa .hero-person {
 	flex: 0 1 380px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
-	margin-bottom: -5px; /* přilepení k dolnímu okraji */
+	margin-bottom: -5px;
 }
 
 .maxa-trefa .person-img {
 	width: 100%;
-	max-width: 280px;
+	max-width: 300px;
 	height: auto;
 	display: block;
 }
 
-/* Pravá karta s hlavní cenou */
 .maxa-trefa .hero-prize-card {
 	flex: 0 0 320px;
 	background: #250352;
-	border: 1px solid #4a1f8a;
-	border-radius: 16px;
-	padding: 20px;
+	border: 1px solid #8952bf;
+	border-radius: 15px;
+	padding: 20px 0;
 	text-align: center;
 	position: relative;
 	margin-bottom: 40px;
@@ -527,8 +523,8 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
     top: -14px;
     left: 50%;
     transform: translateX(-50%);
-    background: #ffb233;
-    color: #120030;
+    background: #FFB233;
+    color: #33007B;
     font-weight: 700;
     font-size: 0.75rem;
     padding: 5px 14px;
@@ -543,6 +539,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	font-size: 1.15rem;
 	font-weight: 700;
 	line-height: 1.25;
+	padding: 0 10px;
 	margin-top: 10px;
 	margin-bottom: 15px;
 	text-transform: uppercase;
@@ -550,12 +547,11 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .text-yellow {
-	color: #ffb233;
+	color: #FFB233;
 }
 
 .maxa-trefa .prize-image-wrapper {
 	width: 100%;
-	border-radius: 10px;
 	overflow: hidden;
 	margin-bottom: 15px;
 }
@@ -566,12 +562,11 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: block;
 }
 
-/* Spodní vlastnosti výhry */
 .maxa-trefa .prize-features {
 	display: flex;
 	justify-content: space-between;
 	align-items: flex-start;
-	padding-top: 15px;
+	padding: 0 10px;
 	gap: 0;
 }
 
@@ -580,8 +575,8 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 6px;
-	padding: 0 5px;
+	gap: 10px;
+	padding: 0 2px;
 	border-right: 1px solid #3d1575;
 }
 .maxa-trefa .feature-item:last-child {
@@ -604,10 +599,8 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .info-bar-section {
-	width: 100%;
-	max-width: 1100px;
 	margin: -55px auto -70px auto;
-	padding: 0 20px;
+	padding: 0;
 	position: relative;
 	z-index: 10;
 }
@@ -615,18 +608,18 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 .maxa-trefa .info-bar-container {
 	background: #f4f3f8;
 	border-radius: 16px;
-	padding: 24px 30px;
+	padding: 24px 0;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Jednotlivé 3 bloky */
 .maxa-trefa .info-bar-item {
 	flex: 1;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 15px;
 	padding: 0 20px;
 	border-right: 1px solid #e0dbe8;
@@ -636,7 +629,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	border-right: none;
 }
 
-/* Ikony */
 .maxa-trefa .info-icon {
 	width: 42px;
 	height: 42px;
@@ -644,14 +636,13 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	flex-shrink: 0;
 }
 
-/* Levý blok - text */
 .maxa-trefa .info-text {
 	display: flex;
 	flex-direction: column;
 }
 
 .maxa-trefa .info-title {
-	color: #120030;
+	color: #33007B;
 	font-size: 0.95rem;
 	font-weight: 800;
 	text-transform: uppercase;
@@ -665,7 +656,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	margin-top: 3px;
 }
 
-/* Prostřední blok - odpočet */
 .maxa-trefa .countdown-item {
 	flex-direction: column;
 	justify-content: center;
@@ -674,7 +664,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .countdown-label {
-	color: #120030;
+	color: #33007B;
 	font-size: 0.85rem;
 	font-weight: 800;
 	letter-spacing: 0.5px;
@@ -693,14 +683,14 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .countdown-timer .number {
-	color: #120030;
+	color: #33007B;
 	font-size: 1.9rem;
 	font-weight: 900;
 	line-height: 1;
 }
 
 .maxa-trefa .countdown-timer .unit-label {
-	color: #120030;
+	color: #33007B;
 	font-size: 0.6rem;
 	font-weight: 700;
 	margin-top: 4px;
@@ -708,22 +698,21 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .countdown-timer .separator {
-	color: #120030;
+	color: #33007B;
 	font-size: 1.6rem;
 	font-weight: 900;
 	line-height: 1;
 }
 
-/* Pravý blok - text */
 .maxa-trefa .info-title-bold {
-	color: #120030;
+	color: #33007B;
 	font-size: 1rem;
 	font-weight: 800;
 	line-height: 1.2;
 }
 
 .maxa-trefa .info-sub-bold {
-	color: #120030;
+	color: #33007B;
 	font-size: 0.9rem;
 	font-weight: 700;
 	line-height: 1.3;
@@ -732,13 +721,14 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 
 .maxa-trefa .how-it-works-section {
 	background-color: #f8f7fc;
-	padding: 100px 20px 60px 20px;
+	padding: 100px 0 60px 0;
 	margin: 0 auto;
 	text-align: center;
+	width: 100%;
 }
 
 .maxa-trefa .how-it-works-title {
-	color: #120030;
+	color: #33007B;
 	font-size: 1.8rem;
 	font-weight: 900;
 	letter-spacing: 0.5px;
@@ -748,11 +738,11 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 
 .maxa-trefa .steps-grid {
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	align-items: stretch;
 }
 
-/* Karta jednoho kroku */
 .maxa-trefa .step-card {
 	flex: 1;
 	display: flex;
@@ -766,7 +756,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	border-right: none;
 }
 
-/* Ikony */
 .maxa-trefa .step-icon-wrapper {
 	width: 64px;
 	height: 64px;
@@ -779,12 +768,11 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 .maxa-trefa .step-icon {
 	width: 50px;
 	height: 50px;
-	stroke: #120030;
+	stroke: #33007B;
 }
 
-/* Nadpis kroku */
 .maxa-trefa .step-title {
-	color: #120030;
+	color: #33007B;
 	font-size: 1.1rem;
 	font-weight: 800;
 	margin-bottom: 12px;
@@ -792,31 +780,24 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	letter-spacing: 0.3px;
 }
 
-/* Popis kroku */
 .maxa-trefa .step-text {
 	color: #222222;
 	font-size: 0.9rem;
+	text-align: center;
 	line-height: 1.45;
 	margin: 0;
 }
 
-.maxa-trefa .step-text strong {
-	color: #120030;
-	font-weight: 700;
-}
-
 .maxa-trefa .challenges-section {
 	width: 100%;
-	background: #18003c;
-	padding: 50px 20px 60px 20px;
+	background: #6000BF;
+	padding: 50px 0 60px 0;
 }
 
 .maxa-trefa .challenges-container {
-	max-width: 1200px;
 	margin: 0 auto;
 }
 
-/* Nadpis s postranními linkami */
 .maxa-trefa .section-title-wrapper {
 	display: flex;
 	align-items: center;
@@ -836,45 +817,33 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	color: #ffffff;
 	font-size: 1.8rem;
 	font-weight: 900;
+	line-height: 1.4;
+	text-align: center;
 	letter-spacing: 1px;
 	margin: 0;
 	text-transform: uppercase;
 }
 
-/* --- DYNAMICKÝ GRID KARET --- */
 .maxa-trefa .challenges-grid {
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 15px;
+	grid-template-columns: 1fr;
+	gap: 30px;
 	align-items: stretch;
 	transition: grid-template-columns 0.4s ease;
 }
 
-/* Dynamické rozložení podle toho, která karta má třídu .active */
-.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active) {
-	grid-template-columns: 1.15fr 0.96fr 0.96fr 0.96fr 0.96fr;
-}
-
-.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active) {
-	grid-template-columns: 0.96fr 1.15fr 0.96fr 0.96fr 0.96fr;
-}
-
-.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active) {
-	grid-template-columns: 0.96fr 0.96fr 1.15fr 0.96fr 0.96fr;
-}
-
-.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active) {
-	grid-template-columns: 0.96fr 0.96fr 0.96fr 1.15fr 0.96fr;
-}
-
+.maxa-trefa .challenges-grid,
+.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active),
+.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active),
+.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active),
+.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active),
 .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(5).active) {
-	grid-template-columns: 0.96fr 0.96fr 0.96fr 0.96fr 1.15fr;
+    grid-template-columns: 1fr;
 }
 
-/* Společné styly karet */
 .maxa-trefa .challenge-card {
 	border-radius: 16px;
-	padding: 20px 12px 15px 12px;
+	padding: 30px 0 15px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -883,13 +852,17 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .card-badge {
+	position: absolute;
+    left: 50%;
+    top: -3%;
+    transform: translate(-50%, -3%);
 	font-size: 0.75rem;
 	font-weight: 800;
 	padding: 4px 12px;
 	border-radius: 6px;
 	text-transform: uppercase;
 	margin-bottom: 12px;
-	background: #4a2185;
+	background: #33007B;
 	color: #ffffff;
 }
 
@@ -915,7 +888,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	align-items: center;
 	justify-content: center;
 	flex: 1;
-	margin-top: 40px;
+	margin-top: 0;
 }
 
 .maxa-trefa .challenge-card.locked .unlocked-content {
@@ -933,26 +906,66 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	width: 100%;
 }
 
-/* --- AKTIVNÍ / ODEMČENÁ KARTA --- */
-.maxa-trefa .challenge-card.active {
-	background-color: transparent;
-	background-image: url('../img/lfc-img-top-banner.png'); /* Případně změň podle potřeby */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	color: #120030;
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-	overflow: hidden;
+.maxa-trefa .challenge-card.active,
+.maxa-trefa .challenge-card.ended {
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #33007B;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Unikátní obrázky pro jednotlivá ID a stavy */
+
+/* Výzva 1 */
+.maxa-trefa .challenge-card[data-id="vyzva-1"].active {
+    background-image: url('../img/golfova-vyzva-bg.jpg');
+}
+.maxa-trefa .challenge-card[data-id="vyzva-1"].ended {
+    background-image: url('../img/lfc-img-top-banner.png');
+}
+
+/* Výzva 2 */
+.maxa-trefa .challenge-card[data-id="vyzva-2"].active {
+    background-image: url('../img/lfc-img-top-banner.png');
+}
+.maxa-trefa .challenge-card[data-id="vyzva-2"].ended {
+    background-image: url('../img/lfc-img-top-banner.png');
+}
+
+/* Výzva 3 */
+.maxa-trefa .challenge-card[data-id="vyzva-3"].active {
+    background-image: url('../img/bg-vyzva-3-aktivni.png');
+}
+.maxa-trefa .challenge-card[data-id="vyzva-3"].ended {
+    background-image: url('../img/bg-vyzva-3-ukoncena.png');
+}
+
+/* Výzva 4 */
+.maxa-trefa .challenge-card[data-id="vyzva-4"].active {
+    background-image: url('../img/bg-vyzva-4-aktivni.png');
+}
+.maxa-trefa .challenge-card[data-id="vyzva-4"].ended {
+    background-image: url('../img/bg-vyzva-4-ukoncena.png');
+}
+
+/* Výzva 5 */
+.maxa-trefa .challenge-card[data-id="vyzva-5"].active {
+    background-image: url('../img/bg-vyzva-5-aktivni.png');
+}
+.maxa-trefa .challenge-card[data-id="vyzva-5"].ended {
+    background-image: url('../img/bg-vyzva-5-ukoncena.png');
 }
 
 .maxa-trefa .challenge-card.active .card-badge {
-	background: #ffb233;
-	color: #120030;
+	background: #FFB233;
+	color: #33007B;
 }
 
 .maxa-trefa .challenge-card.active .challenge-type,
 .maxa-trefa .challenge-card.active .publish-date {
-	color: #120030;
+	color: #33007B;
 }
 
 .maxa-trefa .challenge-card.active .publish-date {
@@ -960,14 +973,12 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: block;
 }
 
-/* Souboj obrázky */
 .maxa-trefa .versus-wrapper {
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
 	gap: 5px;
 	width: 100%;
-	margin-bottom: 8px;
 }
 
 .maxa-trefa .player {
@@ -985,49 +996,47 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 .maxa-trefa .vs-text {
 	font-size: 1.4rem;
 	font-weight: 900;
-	color: #120030;
+	color: #33007B;
 	margin-bottom: 25px;
 }
 
-/* Podklad a stylizace pro jména hráčů */
 .maxa-trefa .player-names {
 	display: flex;
 	justify-content: space-around;
-	width: 100%;
-	font-size: 0.65rem;
+	font-size: 0.8rem;
 	font-weight: 800;
-	color: #120030;
+	color: #33007B;
 	line-height: 1.2;
-	margin-bottom: 15px;
+	margin-bottom: 0;
 	padding: 6px 5px;
-	background: rgba(255, 255, 255, 0.65);
+	background: rgba(255, 255, 255, 0.30);
 	backdrop-filter: blur(4px);
 	border-top: 1px solid rgba(255, 255, 255, 0.4);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-/* Blok pro hlasování */
 .maxa-trefa .vote-section {
-	width: 100%;
+	width: auto;
 	margin-bottom: 15px;
-	background: rgba(255, 255, 255, 0.75);
-	padding: 12px 8px;
-	border-radius: 8px;
+	background: rgba(255, 255, 255, 1);
+	padding: 5px 5px 10px;
 }
 
 .maxa-trefa .vote-label {
 	display: block;
-	font-size: 0.6rem;
-	font-weight: 800;
-	color: #120030;
+	font-size: .8rem;
+	font-weight: 700;
+	color: #33007B;
 	margin-bottom: 8px;
 	text-transform: uppercase;
 }
 
 .maxa-trefa .vote-buttons {
 	display: flex;
-	gap: 6px;
-	width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: auto;
 }
 
 .maxa-trefa .btn-vote {
@@ -1042,64 +1051,67 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .btn-purple {
-	background: #3e008c;
+	background: #33007B;
 	color: #ffffff;
 	border: none;
 }
 
 .maxa-trefa .btn-outline {
 	background: rgba(255, 255, 255, 0.8);
-	color: #120030;
-	border: 2px solid #120030;
+	color: #33007B;
+	border: 2px solid #33007B;
 }
 
-/* Odpočet v kartě */
 .maxa-trefa .card-countdown {
-	width: 100%;
-	background: #ffb233;
+	width: 80%;
+	background: #FFB233;
 	border-radius: 10px;
-	padding: 8px 5px;
-	color: #120030;
+	padding: 2px;
+	margin: 0 auto;
+	color: #33007B;
 }
 
 .maxa-trefa .card-countdown-label {
-	font-size: 0.55rem;
-	font-weight: 800;
+	font-size: .8rem;
+	font-weight: 700;
 	display: block;
 	margin-bottom: 2px;
 }
 
 .maxa-trefa .card-timer {
-	font-size: 0.95rem;
-	font-weight: 900;
+	font-size: 1rem;
+	font-weight: 700;
 	line-height: 1;
 }
 
 .maxa-trefa .card-timer-units {
 	display: flex;
 	justify-content: center;
-	gap: 7px;
-	font-size: 0.45rem;
-	font-weight: 800;
+	gap: 5px;
+	font-size: .5rem;
+	font-weight: 700;
 	margin-top: 2px;
 }
 
 /* --- ZAMČENÉ KARTY --- */
 .maxa-trefa .challenge-card.locked {
-	background: rgba(255, 255, 255, 0.04);
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	color: #ffffff;
-	justify-content: flex-start;
+    background: linear-gradient(rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)), url('../img/silueta-postava.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    justify-content: flex-start;
 }
 
 .maxa-trefa .challenge-card.locked .publish-date {
-	color: #a382e8;
+	color: #ffffff;
 }
 
 .maxa-trefa .vs-text-locked {
 	font-size: 1.2rem;
 	font-weight: 800;
-	color: rgba(255, 255, 255, 0.2);
+	color: #ffffff;
 	margin-bottom: 25px;
 }
 
@@ -1128,32 +1140,9 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	text-transform: uppercase;
 }
 
-/* Responsivita */
-@media (max-width: 1024px) {
-	.maxa-trefa .challenges-grid,
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(5).active) {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-@media (max-width: 600px) {
-	.maxa-trefa .challenges-grid,
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active),
-	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(5).active) {
-		grid-template-columns: 1fr;
-	}
-}
-
 
 /* --- MODAL OKNO --- */
-.modal-overlay {
+.maxa-trefa .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -1170,14 +1159,14 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.modal-overlay.is-open {
+.maxa-trefa .modal-overlay.is-open {
   opacity: 1;
   visibility: visible;
 }
 
-.modal-content {
+.maxa-trefa .modal-content {
   background: #18003c;
-  border: 2px solid #ffb233;
+  border: 2px solid #FFB233;
   border-radius: 16px;
   padding: 35px 25px 30px 25px;
   max-width: 420px;
@@ -1188,7 +1177,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   text-align: center;
 }
 
-.modal-close {
+.maxa-trefa .modal-close {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -1200,46 +1189,45 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   line-height: 1;
 }
 
-.modal-title {
+.maxa-trefa .modal-title {
   font-size: 1.4rem;
   font-weight: 900;
-  color: #ffb233;
+  color: #FFB233;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-.modal-subtitle {
+.maxa-trefa .modal-subtitle {
   font-size: 0.9rem;
   margin-bottom: 25px;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.modal-subtitle strong {
   color: #ffffff;
+  text-align: center;
 }
 
 /* Formulář */
-.vote-form {
+.maxa-trefa .vote-form {
   display: flex;
   flex-direction: column;
   gap: 15px;
   text-align: left;
 }
 
-.form-group {
+.maxa-trefa .form-group {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin: 0 0 20px;
 }
 
-.form-group label {
-  font-size: 0.75rem;
-  font-weight: 800;
+.maxa-trefa .form-group label {
+  font-size: .9rem;
+  font-weight: 400;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.9);
+  color: #ffffff;
+  text-align: left;
 }
 
-.form-group input {
+.maxa-trefa .form-group input {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1249,16 +1237,23 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   outline: none;
 }
 
-.form-group input:focus {
-  border-color: #ffb233;
+.maxa-trefa .form-group input:focus {
+  border-color: #FFB233;
   background: rgba(255, 255, 255, 0.15);
 }
 
-.btn-submit {
+.maxa-trefa .form-group .agree-text {
+	font-size: .9rem;
+	font-weight: 400;
+	text-transform: none;
+
+}
+
+.maxa-trefa .btn-submit {
   margin-top: 10px;
   padding: 12px;
-  background: #ffb233;
-  color: #120030;
+  background: #FFB233;
+  color: #33007B;
   border: none;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -1268,75 +1263,67 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.btn-submit:hover {
+.maxa-trefa .btn-submit:hover {
   background: #ffa000;
   transform: translateY(-2px);
 }
 
-#vote-modal.is-open {
+.maxa-trefa #vote-modal.is-open {
   display: flex;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
 }
 
-/* Pokud máš animaci opacity na .modal-overlay, přidej i toto: */
-#vote-modal.is-open .modal-overlay {
+.maxa-trefa #vote-modal.is-open .modal-overlay {
   opacity: 1;
   pointer-events: auto;
 }
-#vote-modal {
+.maxa-trefa #vote-modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  
-  /* Vycentrování obsahu modalu na střed obrazovky */
-  display: none; /* Skrytý v základu */
+  display: none;
   align-items: center;
   justify-content: center;
   
-  background-color: rgba(0, 0, 0, 0.7); /* Poloprůhledné tmavé pozadí */
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Když JS přidá třídu .is-open, modal se zobrazí na středu */
-#vote-modal.is-open {
+.maxa-trefa #vote-modal.is-open {
   display: flex;
 }
 
-
-
-
-
 .maxa-trefa .prize-detail-section {
 	width: 100%;
-	background-color: #18003c;
-	padding: 20px;
+	background-color: #6000BF;
+	padding: 20px 0;
 }
 
 .maxa-trefa .prize-detail-container {
-	max-width: 1100px;
 	margin: 0 auto;
 	background: #f1eff8;
 	border-radius: 20px;
-	padding: 40px;
+	padding: 0;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	gap: 30px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Levý textový blok */
 .maxa-trefa .prize-detail-content {
 	flex: 1 1 420px;
 	max-width: 450px;
+	padding: 30px;
 }
 
 .maxa-trefa .prize-subtitle {
-	color: #120030;
+	color: #33007B;
 	font-size: 0.9rem;
 	font-weight: 800;
 	letter-spacing: 0.5px;
@@ -1346,7 +1333,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 
 .maxa-trefa .prize-detail-title {
-	color: #120030;
+	color: #33007B;
 	font-size: 1.6rem;
 	font-weight: 900;
 	line-height: 1.2;
@@ -1354,7 +1341,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	text-transform: uppercase;
 }
 
-/* Checklist s fialovými ikonami */
 .maxa-trefa .prize-checklist {
 	list-style: none;
 	padding: 0;
@@ -1368,7 +1354,7 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: #120030;
+	color: #33007B;
 	font-size: 0.88rem;
 	font-weight: 700;
 }
@@ -1383,11 +1369,10 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	flex-shrink: 0;
 }
 
-/* Tlačítko */
 .maxa-trefa .btn-more-info {
 	display: inline-block;
-	background: #ffb233;
-	color: #120030;
+	background: #FFB233;
+	color: #33007B;
 	font-size: 0.85rem;
 	font-weight: 800;
 	padding: 12px 24px;
@@ -1402,13 +1387,14 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	background: #ffa000;
 }
 
-/* Pravý mediální blok s obrázky */
 .maxa-trefa .prize-detail-media {
 	flex: 1 1 500px;
 	display: flex;
 	align-items: center;
 	position: relative;
 	gap: 12px;
+	padding: 30px;
+	width: 90%;
 }
 
 .maxa-trefa .media-card {
@@ -1433,7 +1419,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: block;
 }
 
-/* Odznak s letadlem uprostřed */
 .maxa-trefa .plane-badge {
 	position: absolute;
 	left: 50%;
@@ -1460,17 +1445,9 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 
 /* Responsivita */
 @media (max-width: 900px) {
-	.maxa-trefa .prize-detail-container {
-		flex-direction: column;
-		padding: 25px;
-	}
 	
 	.maxa-trefa .prize-detail-content {
 		max-width: 100%;
-	}
-
-	.maxa-trefa .prize-detail-media {
-		width: 100%;
 	}
 }
 
@@ -1490,8 +1467,8 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 
 .maxa-trefa .faq-bar-section {
 	width: 100%;
-	background-color: #18003c;
-	padding: 20px 20px 40px 20px;
+	background-color: #6000BF;
+	padding: 20px 0 40px 0;
 }
 
 .maxa-trefa .faq-bar-container {
@@ -1503,7 +1480,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	padding: 0 10px;
 }
 
-/* Levá část s ikonou a textem */
 .maxa-trefa .faq-bar-content {
 	display: flex;
 	align-items: center;
@@ -1546,7 +1522,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	margin-top: 2px;
 }
 
-/* Obrysové tlačítko */
 .maxa-trefa .btn-faq {
 	display: inline-block;
 	border: 1.5px solid rgba(255, 255, 255, 0.6);
@@ -1580,28 +1555,25 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	}
 }
 
-
-
-
-
 /* Main end */
 
 /* Footer */
 .maxa-trefa .site-footer {
 	width: 100%;
-	background-color: #120030;
-	padding: 25px 20px;
-	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	background-color: #33007B;
+	padding: 25px 0;
 }
 
 .maxa-trefa .footer-container {
 	max-width: 1200px;
 	margin: 0 auto;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
 }
+
 
 .maxa-trefa .footer-logo-link {
 	display: inline-block;
@@ -1614,11 +1586,11 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	display: block;
 }
 
-/* Navigační odkazy uprostřed */
 .maxa-trefa .footer-nav {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 25px;
+	gap: 20px;
 	flex-wrap: wrap;
 }
 
@@ -1636,7 +1608,6 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	text-decoration: underline;
 }
 
-/* Pravý blok s varováním */
 .maxa-trefa .footer-warning {
 	text-align: right;
 	flex-shrink: 0;
@@ -1655,53 +1626,19 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	margin-bottom: 2px;
 }
 
-/* Responsivita pro mobilní zařízení */
-@media (max-width: 900px) {
-	.maxa-trefa .footer-container {
-		flex-direction: column;
-		text-align: center;
-		gap: 20px;
-	}
-
-	.maxa-trefa .footer-nav {
-		justify-content: center;
-		gap: 15px;
-	}
-
-	.maxa-trefa .footer-warning {
-		text-align: center;
-	}
-}
-
 
 @media (min-width: 768px) {
-	.maxa-trefa .section-title-h1 {
-		font-size: 4.7rem;
-	}
-	.maxa-trefa .section-title-h2 {
-		font-size: 2.3rem;
-	}
-	.maxa-trefa .title-h1 {
-		font-size: 4rem;
-		margin: 0;
-	}
-	.maxa-trefa .title-h2 {
-		font-size: 2.3rem;
-		margin: 0 0 10px;
-	}
-	.maxa-trefa .title-h3 {
-		font-size: 2.6rem;
-		margin: 0 0 25px;
-	}
-	.maxa-trefa .main-points-p {
-		font-size: 1.5rem;
-	}
 	.maxa-trefa .navigation-wrapper-desktop ul {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 		-ms-flex-direction: row;
 		flex-direction: row;
 	}
+	.maxa-trefa .hero-title {
+	font-size: 2rem;
+	line-height: 1.2;
+	text-align: left;
+}
 	.maxa-trefa .btn-button {
 		padding: 15px 45px;
 	}
@@ -1762,6 +1699,34 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 		border-bottom: none;
 		padding-bottom: 0;
 	}
+	.maxa-trefa .challenges-grid {
+	gap: 15px;
+}
+.maxa-trefa .prize-detail-container {
+		flex-direction: row;
+	}
+	.maxa-trefa .prize-detail-media {
+		width: 100%;
+	}
+	.maxa-trefa .footer-nav {
+		flex-direction: row;
+		justify-content: center;
+		gap: 15px;
+	}
+	.maxa-trefa .challenges-grid,
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active),
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active),
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active),
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active),
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(5).active) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+	.maxa-trefa .footer-container {
+	display: flex;
+	flex-direction: row;
+}
 }
 
 /* Responsivita */
@@ -1784,19 +1749,15 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 }
 /* Responsivita pro menší obrazovky */
 @media (max-width: 991px) {
-	.maxa-trefa .hero-container {
-		flex-wrap: wrap;
-		justify-content: center;
-	}
+	
 	.maxa-trefa .hero-content {
 		flex: 1 1 100%;
 		max-width: 100%;
 		text-align: center;
 		padding-bottom: 20px;
 	}
-	.maxa-trefa .hero-title {
-		text-align: center;
-	}
+
+
 }
 @media (min-width: 992px) {
 	.maxa-trefa .site-header {
@@ -1846,11 +1807,34 @@ background: linear-gradient(0deg,rgba(0, 204, 204, 1) 0%, rgba(96, 0, 191, 1) 40
 	.maxa-trefa .text-block-inner {
 	width: 80%;
 }
+.maxa-trefa .hero-container {
+    	justify-content: space-between;
+    	flex-wrap: nowrap;
+	}
 }
 @media(min-width: 1024px) {
 	.maxa-trefa .navigation-wrapper-desktop .navigation-modify-container {
 		gap: 40px;
 	}
+	.maxa-trefa .challenges-grid:has(.challenge-card:nth-child(1).active) {
+        grid-template-columns: 1.15fr 0.96fr 0.96fr 0.96fr 0.96fr;
+    }
+
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(2).active) {
+        grid-template-columns: 0.96fr 1.15fr 0.96fr 0.96fr 0.96fr;
+    }
+
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(3).active) {
+        grid-template-columns: 0.96fr 0.96fr 1.15fr 0.96fr 0.96fr;
+    }
+
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(4).active) {
+        grid-template-columns: 0.96fr 0.96fr 0.96fr 1.15fr 0.96fr;
+    }
+
+    .maxa-trefa .challenges-grid:has(.challenge-card:nth-child(5).active) {
+        grid-template-columns: 0.96fr 0.96fr 0.96fr 0.96fr 1.15fr;
+    }
 }
 @media(min-width: 1200px) {
 	.maxa-trefa .navigation-wrapper-desktop .navigation-modify-container {
