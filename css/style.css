@@ -1281,7 +1281,6 @@ body.maxa-trefa {
     align-items: center;
 }
 
-.maxa-trefa .prize-container::before,
 .maxa-trefa .prize-container::after {
     content: '';
     position: absolute;
@@ -1291,22 +1290,13 @@ body.maxa-trefa {
     pointer-events: none;
     display: block; 
 }
-.maxa-trefa .prize-container::before {
-        display: block;
-        left: -33px;
-    bottom: -71px;
-    width: 108px;
-    height: 170px;
-        background-image: url('../img/fanousci.png');
-        z-index: 1;
-    }
     .maxa-trefa .prize-container::after {
         display: block;
         right: -36px;
     bottom: -80px;
     width: 135px;
     height: 220px;
-        background-image: url('../img/fotbalista_hlavni-vyhra.png');
+        background-image: url('../img/fotbalista-hlavni-vyhra.png');
         z-index: 1;
     }
 
@@ -2046,22 +2036,13 @@ body.maxa-trefa {
 	right: 1.5em;
 	bottom: 1em;
 }
-.maxa-trefa .prize-container::before {
-        display: block;
-        left: -30px;
-        bottom: -95px;
-        width: 345px;
-        height: 450px;
-        background-image: url('../img/fanousci.png');
-        z-index: 1;
-    }
     .maxa-trefa .prize-container::after {
         display: block;
         right: -20px;
         bottom: -120px;
         width: 295px;
         height: 460px;
-        background-image: url('../img/fotbalista_hlavni-vyhra.png');
+        background-image: url('../img/fotbalista-hlavni-vyhra.png');
         z-index: 1;
     }
 }
@@ -2221,22 +2202,13 @@ body.maxa-trefa {
         line-height: 1.1;
         text-align: center;
     }
-    .maxa-trefa .prize-container::before {
-        display: block;
-        left: -30px;
-        bottom: -75px;
-        width: 380px;
-        height: 450px;
-        background-image: url('../img/fanousci.png');
-        z-index: 1;
-    }
     .maxa-trefa .prize-container::after {
         display: block;
         right: -120px;
         bottom: -105px;
         width: 360px;
         height: 460px;
-        background-image: url('../img/fotbalista_hlavni-vyhra.png');
+        background-image: url('../img/fotbalista-hlavni-vyhra.png');
         z-index: 1;
     }
 
@@ -2248,12 +2220,6 @@ body.maxa-trefa {
 	.maxa-trefa .navigation-wrapper-desktop ul {
 		gap: 13px 30px;
 	}
-    .maxa-trefa .prize-container::before {
-    	bottom: -75px;
-        left: 20px;
-        width: 440px;
-        height: 520px;
-    }
 
     .maxa-trefa .prize-container::after {
         right: -113px;
