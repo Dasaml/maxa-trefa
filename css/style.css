@@ -1176,6 +1176,10 @@ body.maxa-trefa {
 	margin: 5px 0;
 }
 
+.maxa-trefa .challenges-section .challenge-card[data-status="finished"] .maxa-trefa .challenges-section .vs-text {
+	top: 20%;
+}
+
 
 /* ==========================================================================
    SEKCE VIDEA Z CHALLENGÍ 
@@ -2016,6 +2020,9 @@ body.maxa-trefa {
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
+    .maxa-trefa .challenges-section .challenge-card[data-status="finished"] .maxa-trefa .challenges-section .vs-text {
+	top: 15%;
+}
     .maxa-trefa .step-text-inner {
 	display: flex;
     flex-direction: column;
