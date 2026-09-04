@@ -20,61 +20,81 @@
   };
 
   /* ==========================================================================
-     2. SAMOSTATNÝ A PLNĚ NEZÁVISLÝ ODPOČET ČASU
+     2. ODPOČTY (HORNÍ PANEL + KARTY)
   ========================================================================== */
+  const fixedFutureDate = new Date();
+  fixedFutureDate.setMonth(fixedFutureDate.getMonth() + 2);
+  fixedFutureDate.setHours(23, 59, 59, 999);
+  const cardTargetTime = fixedFutureDate.getTime();
+
   function initCountdowns() {
-    const countdownItems = document.querySelectorAll('.countdown-item, .card-countdown');
-    if (countdownItems.length === 0) return;
-
-    countdownItems.forEach(item => {
-      const targetDateStr = item.getAttribute('data-end-date') || item.getAttribute('data-date');
-      if (!targetDateStr) return;
-
-      const targetTime = new Date(targetDateStr).getTime();
-      if (isNaN(targetTime)) return;
-
-      const numbers = item.querySelectorAll('.number, .card-timer span');
-      if (numbers.length < 4) return;
-
-      function updateTimer() {
+    const topCountdown = document.querySelector('.info-bar-item.countdown-item');
+    if (topCountdown) {
+      const targetDateStr = topCountdown.getAttribute('data-end-date');
+      if (targetDateStr) {
+        const targetTime = new Date(targetDateStr).getTime();
         const now = new Date().getTime();
         const difference = targetTime - now;
 
-        if (difference <= 0) {
-          numbers[0].textContent = '00';
-          numbers[1].textContent = '00';
-          numbers[2].textContent = '00';
-          numbers[3].textContent = '00';
-          return;
+        const dEl = document.getElementById('days');
+        const hEl = document.getElementById('hours');
+        const mEl = document.getElementById('minutes');
+        const sEl = document.getElementById('seconds');
+
+        if (dEl && hEl && mEl && sEl) {
+          if (difference <= 0) {
+            dEl.textContent = '00';
+            hEl.textContent = '00';
+            mEl.textContent = '00';
+            sEl.textContent = '00';
+          } else {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            dEl.textContent = String(days).padStart(2, '0');
+            hEl.textContent = String(hours).padStart(2, '0');
+            mEl.textContent = String(minutes).padStart(2, '0');
+            sEl.textContent = String(seconds).padStart(2, '0');
+          }
         }
+      }
+    }
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    // 2. Odpocet v kartach
+    const cardCountdowns = document.querySelectorAll('.card-countdown');
+    cardCountdowns.forEach(item => {
+      const numbers = item.querySelectorAll('.card-timer span, .number');
+      if (numbers.length < 4) return;
 
-        numbers[0].textContent = String(days).padStart(2, '0');
-        numbers[1].textContent = String(hours).padStart(2, '0');
-        numbers[2].textContent = String(minutes).padStart(2, '0');
-        numbers[3].textContent = String(seconds).padStart(2, '0');
+      const now = new Date().getTime();
+      const difference = cardTargetTime - now;
+
+      if (difference <= 0) {
+        numbers[0].textContent = '00';
+        numbers[1].textContent = '00';
+        numbers[2].textContent = '00';
+        numbers[3].textContent = '00';
+        return;
       }
 
-      updateTimer();
-      setInterval(updateTimer, 1000);
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      numbers[0].textContent = String(days).padStart(2, '0');
+      numbers[1].textContent = String(hours).padStart(2, '0');
+      numbers[2].textContent = String(minutes).padStart(2, '0');
+      numbers[3].textContent = String(seconds).padStart(2, '0');
     });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCountdowns);
-  } else {
-    initCountdowns();
-  }
-
   /* ==========================================================================
-     3. INICIALIZACE ZBYTKU WEBU (MODALY, NAVIGACE, KARTY)
+     3. INICIALIZACE ZBYTKU WEBU
   ========================================================================== */
   function initMain() {
-
     const selectNavbar = select('#navbar');
     if (selectNavbar) {
       const navbarScrolled = () => {
@@ -143,77 +163,10 @@
         }
       });
     });
-    
-    const cards = select(".challenge-card", true);
-    if (cards.length > 0) {
-      const today = new Date();
-      let activeCardTarget = null;
 
-      cards.forEach(card => {
-        const dateAttr = card.getAttribute("data-date");
-        const endDateAttr = card.getAttribute("data-end-date");
-        const winnerAttr = card.getAttribute("data-winner");
+    initCountdowns();
+    setInterval(initCountdowns, 1000);
 
-        if (dateAttr) {
-          const publishDate = new Date(dateAttr);
-          publishDate.setHours(0, 0, 0, 0);
-          const compareToday = new Date(today);
-          compareToday.setHours(0, 0, 0, 0);
-
-          card.classList.remove("active", "locked", "unlocked", "ended");
-
-          if (compareToday >= publishDate) {
-            card.classList.add("unlocked");
-            activeCardTarget = card; 
-          } else {
-            card.classList.add("locked");
-          }
-        }
-
-        if (endDateAttr) {
-          const endDate = new Date(endDateAttr);
-          const votingArea = card.querySelector(".voting-area");
-          const countdownArea = card.querySelector(".card-countdown");
-          let endedArea = card.querySelector(".ended-area");
-
-          if (today >= endDate) {
-            if (votingArea) votingArea.style.display = "none";
-            if (countdownArea) countdownArea.style.display = "none";
-
-            card.classList.remove("active");
-            card.classList.add("ended");
-
-            if (!endedArea) {
-              endedArea = document.createElement("div");
-              endedArea.className = "ended-area";
-              card.appendChild(endedArea);
-            }
-
-            endedArea.style.display = "block";
-            endedArea.innerHTML = `
-              <div class="status-ended-box" style="text-align: center; padding: 20px 15px; background: rgba(18, 10, 35, 0.85); backdrop-filter: blur(6px); border-radius: 12px; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                <h4 style="margin: 0 0 8px 0; color: #ff4d4d; text-transform: uppercase; font-size: 1.1em; letter-spacing: 1px;">Hlasování ukončeno</h4>
-                ${winnerAttr ? `<p style="margin: 0; font-weight: bold; font-size: 1.2em; color: #fff;">VÍTĚZ: <span style="color: #ffb703;">${winnerAttr}</span></p>` : ''}
-              </div>
-            `;
-          }
-        }
-      });
-
-      if (activeCardTarget) {
-        if (!activeCardTarget.classList.contains("ended")) {
-          activeCardTarget.classList.remove("locked");
-          activeCardTarget.classList.add("active");
-        }
-      } else if (cards[0]) {
-        if (!cards[0].classList.contains("ended")) {
-          cards[0].classList.remove("locked");
-          cards[0].classList.add("active");
-        }
-      }
-    }
-
-    // Modal a Formulář
     const modal = select("#vote-modal");
     const modalCloseBtn = select("#modal-close");
     const candidateText = select("#selected-candidate");
@@ -260,7 +213,7 @@
           selectionWrapper.style.display = "none";
         }
 
-        showModalMsg("Z tohoto zařízení již byl hlas v této výzvě odeslán. Děkujeme!", false);
+        showModalMsg("Z tohoto zarizeni jiz byl hlas v teto vyzve odeslan. Dekujeme!", false);
         return;
       }
 
@@ -295,7 +248,7 @@
       }
     }
 
-    document.addEventListener("click", (e) => {
+    document.documentElement.addEventListener("click", (e) => {
       const voteBtn = e.target.closest(".btn-vote");
       if (voteBtn) {
         e.preventDefault();
@@ -330,19 +283,19 @@
         const termsCheckbox = select("#terms-agree");
 
         if (!nameInput || !nameInput.value.trim()) {
-          showModalMsg("Vyplňte prosím vaše jméno a příjmení.");
+          showModalMsg("Vyplnte prosim vase jmeno a prijmeni.");
           if (nameInput) nameInput.focus();
           return;
         }
 
         if (!emailInput || !emailInput.value.trim()) {
-          showModalMsg("Vyplňte prosím váš e-mail.");
+          showModalMsg("Vyplnte prosim vas e-mail.");
           if (emailInput) emailInput.focus();
           return;
         }
 
         if (termsCheckbox && !termsCheckbox.checked) {
-          showModalMsg("Pro odeslání hlasu musíte souhlasit se zpracováním osobních údajů.");
+          showModalMsg("Pro odeslani hlasu musite souhlasit se zpracovanim osobnich udaju.");
           if (termsCheckbox) termsCheckbox.focus();
           return;
         }
@@ -360,7 +313,7 @@
 
         voteForm.style.display = "none";
 
-        showModalMsg(`Děkujeme za hlas pro kandidáta: ${formData.candidate}!`, false);
+        showModalMsg(`Dekujeme za hlas pro kandidata: ${formData.candidate}!`, false);
         
         setTimeout(() => {
           closeModal();
