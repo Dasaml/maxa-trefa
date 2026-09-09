@@ -6,7 +6,7 @@
     <meta name="description" content="Maxa">
     <meta property="og:title" content="Maxa">
     <meta property="og:description" content="Maxa">
-    <meta property="og:image" content="https://dasaml.github.io/maxa-trefa/img/og-image.jpg">
+    <meta property="og:image" content="./img/og-image.jpg">
     <meta property="og:url" content="#">
     <meta property="og:type" content="website">
     <link rel="preload" href="fonts/Maxa-Grotesk-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -125,7 +125,7 @@
         </div>
       </section>
 
-      <section class="info-bar-section">
+      <div class="info-bar-section">
         <div class="info-bar-container container">
           <div class="info-bar-item">
             <img src="./img/hlasujte-a-vyhrajte.webp" alt="Hlasujte a vyhrajte" class="hlasujte-ikona">
@@ -163,15 +163,15 @@
             <img src="./img/hlasovani-probiha.webp" alt="Hlasování probíhá" class="hlasujte-ikona">
           </div>
         </div>
-      </section>
+      </div>
 
-      <section class="maxa-video-section">
+      <div class="maxa-video-section">
         <div class="video-container container">
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/TVUJ_ID" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/TVUJ_ID" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
-      </section>
+      </div>
 
       <section class="how-it-works-section">
         <div class="container container-bg">
@@ -228,9 +228,10 @@
             <h2 class="challenges-title">SERIE 5 CHALLENGIS PATRIKEM BERGEREM</h2>
           </div>
           <div class="challenges-grid">
+
             <!-- ========================================== -->
-            <!-- 1. AKTIVNÍ KARTA (probíhá hlasování) -->
-            <!-- ========================================== -->      
+            <!-- 1. KARTA -->
+            <!-- ========================================== -->
             <div class="challenge-card" data-status="active">
               <div class="card-badge">Challenge 1</div>
               <h3 class="challenge-type">Golfová výzva</h3>
@@ -248,13 +249,11 @@
                     <div class="player-names guest"><span>RADEK<br>ŠTĚPÁNEK</span></div>
                   </div>
                 </div>
-                <!-- Toto se u finished stavu v CSS automaticky schová -->
                 <div class="card-countdown countdown-area" data-date="2026-09-02T17:35:00">
                   <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA</span>
                   <div class="card-timer"><span>00</span><span>00</span><span>00</span><span>00</span></div>
                   <div class="card-timer-units"><span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span></div>
                 </div>
-                <!-- Toto se u finished stavu v CSS automaticky schová -->
                 <div class="vote-section">
                   <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
                   <div class="vote-buttons">
@@ -263,7 +262,7 @@
                   </div>
                 </div>
               </div>
-              <!-- Toto se u finished stavu v CSS zaktivní a ukáže dole -->
+
               <div class="ended-area">
                 <h4>HLASOVÁNÍ UKONČENO</h4>
                 <p>Výtěz: Patrik Berger</p>
@@ -271,29 +270,24 @@
             </div>
 
             <!-- ========================================== -->
-            <!-- 2. ZAMČENÁ KARTA (bude zveřejněno) -->
+            <!-- 2. KARTA -->
             <!-- ========================================== -->
             <div class="challenge-card" data-status="finished">
               <div class="card-badge">Challenge 2</div>
-
-              <!-- 1. ČÁST PRO ZAMČENÝ STAV -->
               <div class="locked-section">
                 <div class="locked-bg-question">
                   <h3 class="challenge-type">Říjen 2026</h3>
                   <span class="publish-date">BUDE ZVEŘEJNĚNO</span>
                 </div>
-
                 <div class="card-middle-names">
                   <div class="name-box light-box">PATRIK<br>BERGER</div>
                   <div class="name-box dark-box dotted-box">..................<br>..................</div>
                 </div>
-
                 <div class="card-bottom-locked">
                   <span class="locked-info-text">SOUPEŘ BUDE BRZY<br><strong>ODHALEN</strong></span>
                 </div>
               </div>
 
-              <!-- 2. ČÁST PRO AKTIVNÍ / UKONČENÝ STAV -->
               <div class="unlocked-content">
                 <h3 class="challenge-type">Další výzva</h3>
                 <span class="publish-date">UVEREJNENI: 3. 10. 2026</span>
@@ -321,7 +315,7 @@
                   </div>
                 </div>
               </div>
-              <!-- 3. ČÁST PRO UKONČENÝ STAV -->
+
               <div class="ended-area">
                 <h4>HLASOVÁNÍ UKONČENO</h4>
                 <p>Výtěz: Patrik Berger</p>
@@ -329,13 +323,10 @@
             </div>
 
             <!-- ========================================== -->
-            <!-- 3. ZAMČENÁ KARTA (bude zveřejněno) -->
+            <!-- 3. KARTA -->
             <!-- ========================================== -->
-
             <div class="challenge-card" data-status="locked">
               <div class="card-badge">Challenge 3</div>
-
-              <!-- 1. ČÁST PRO ZAMČENÝ STAV -->
               <div class="locked-section">
                 <div class="locked-bg-question">
                   <h3 class="challenge-type">Říjen 2026</h3>
@@ -350,7 +341,6 @@
                 </div>
               </div>
 
-              <!-- 2. ČÁST PRO AKTIVNÍ / UKONČENÝ STAV  -->
               <div class="unlocked-content">
                 <h3 class="challenge-type">Golfová výzva</h3>
                 <span class="publish-date">UVEŘEJNENÍ: 30. 10.</span>
@@ -379,7 +369,6 @@
                 </div>
               </div>
 
-              <!-- 3. ČÁST PRO UKONČENÝ STAV -->
               <div class="ended-area">
                 <h4>HLASOVÁNÍ UKONČENO</h4>
                 <p>Výtěz: Patrik Berger</p>
@@ -387,13 +376,10 @@
             </div>
 
             <!-- ========================================== -->
-            <!-- 4. ZAMČENÁ KARTA (bude zveřejněno) -->
+            <!-- 4. KARTA -->
             <!-- ========================================== -->
-
             <div class="challenge-card" data-status="locked">
               <div class="card-badge">Challenge 4</div>
-
-              <!-- 1. ČÁST PRO ZAMČENÝ STAV -->
               <div class="locked-section">
                 <div class="locked-bg-question">
                   <h3 class="challenge-type">Říjen 2026</h3>
@@ -408,11 +394,9 @@
                 </div>
               </div>
 
-              <!-- 2. ČÁST PRO AKTIVNÍ / UKONČENÝ STAV -->
               <div class="unlocked-content">
                 <h3 class="challenge-type">Golfová výzva</h3>
                 <span class="publish-date">UVEREJNENI: 3. 10. 2026</span>
-
                 <div class="versus-wrapper">
                   <div class="player">
                     <img src="./img/p-berger.webp" alt="Patrik Berger" class="player-img">
@@ -424,13 +408,11 @@
                     <div class="player-names guest"><span>SOUPEŘ</span></div>
                   </div>
                 </div>
-
                 <div class="card-countdown countdown-area" data-date="2026-10-03T17:35:00">
                   <span class="card-countdown-label">HLASOVÁNÍ KONČÍ ZA</span>
                   <div class="card-timer"><span>00</span><span>00</span><span>00</span><span>00</span></div>
                   <div class="card-timer-units"><span>DNÍ</span><span>HODIN</span><span>MINUT</span><span>VTEŘIN</span></div>
                 </div>
-
                 <div class="vote-section">
                   <span class="vote-label">KDO PODLE VÁS VYHRAJE?</span>
                   <div class="vote-buttons">
@@ -440,7 +422,6 @@
                 </div>
               </div>
 
-              <!-- 3. ČÁST PRO UKONČENÝ STAV -->
               <div class="ended-area">
                 <h4>HLASOVÁNÍ UKONČENO</h4>
                 <p>Výtěz: Patrik Berger</p>
@@ -448,13 +429,10 @@
             </div>
 
             <!-- ========================================== -->
-            <!-- 5. UKONČENÁ KARTA  -->
+            <!-- 5. KARTA -->
             <!-- ========================================== -->
-
             <div class="challenge-card" data-status="locked">
               <div class="card-badge">Challenge 5</div>
-
-              <!-- 1. ČÁST PRO ZAMČENÝ STAV -->
               <div class="locked-section">
                 <div class="locked-bg-question">
                   <h3 class="challenge-type">Rijen 2026</h3>
@@ -469,7 +447,6 @@
                 </div>
               </div>
 
-              <!-- 2. ČÁST PRO AKTIVNÍ / UKONČENÝ STAV -->
               <div class="unlocked-content">
                 <h3 class="challenge-type">Golfova výzva</h3>
                 <span class="publish-date">UVEREJNENI: 3. 10. 2026</span>
@@ -498,79 +475,79 @@
                 </div>
               </div>
 
-              <!-- 3. ČÁST PRO UKONČENÝ STAV -->
               <div class="ended-area">
                 <h4>HLASOVÁNÍ UKONČENO</h4>
                 <p>Výtěz: Patrik Berger</p>
               </div>
             </div>
           </div>
-        </section>
-        <section class="videos-section">
-          <div class="container">
-            <div class="section-title-wrapper video-title-wrapper">
-              <h2 class="challenges-title">Chcete vědět jako to dopadlo?</h2>
-            </div>
+        </div>
+      </section>
 
-            <div class="videos-grid-container">
-              <div class="videos-grid">
-                
-                <!-- Karta 1: Aktivní / Odemčená s vloženým YouTube videem -->
-                <div class="video-card active">
-                  <div class="video-thumbnail">
-                    <iframe src="https://www.youtube.com/embed/DIEytBZhh_w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                  </div>
+      <section class="videos-section">
+        <div class="container">
+          <div class="section-title-wrapper video-title-wrapper">
+            <h2 class="challenges-title">Chcete vědět jako to dopadlo?</h2>
+          </div>
+
+          <div class="videos-grid-container">
+            <div class="videos-grid">
+              
+              <!-- Karta 1: Aktivní / Odemčená s vloženým YouTube videem -->
+              <div class="video-card active">
+                <div class="video-thumbnail">
+                  <iframe src="https://www.youtube.com/embed/DIEytBZhh_w" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
+              </div>
 
-                <!-- Karta 2: Zamčená -->
-                <div class="video-card locked">
-                  <div class="video-thumbnail">
-                    <img src="./img/video-paceholder.webp" alt="Výzva 2 - Již brzy" class="video-thumb-img">
-                  </div>
+              <!-- Karta 2: Zamčená -->
+              <div class="video-card locked">
+                <div class="video-thumbnail">
+                  <img src="./img/video-paceholder.webp" alt="Výzva 2 - Již brzy" class="video-thumb-img">
                 </div>
+              </div>
 
-                <!-- Karta 3: Zamčená -->
-                <div class="video-card locked">
-                  <div class="video-thumbnail">
-                    <img src="./img/video-paceholder.webp" alt="Výzva 3 - Již brzy" class="video-thumb-img">
-                  </div>
+              <!-- Karta 3: Zamčená -->
+              <div class="video-card locked">
+                <div class="video-thumbnail">
+                  <img src="./img/video-paceholder.webp" alt="Výzva 3 - Již brzy" class="video-thumb-img">
                 </div>
+              </div>
 
-                <!-- Karta 4: Zamčená -->
-                <div class="video-card locked">
-                  <div class="video-thumbnail">
-                    <img src="./img/video-paceholder.webp" alt="Výzva 4 - Již brzy" class="video-thumb-img">
-                  </div>
+              <!-- Karta 4: Zamčená -->
+              <div class="video-card locked">
+                <div class="video-thumbnail">
+                  <img src="./img/video-paceholder.webp" alt="Výzva 4 - Již brzy" class="video-thumb-img">
                 </div>
+              </div>
 
-                <!-- Karta 5: Zamčená -->
-                <div class="video-card locked">
-                  <div class="video-thumbnail">
-                    <img src="./img/video-paceholder.webp" alt="Výzva 5 - Již brzy" class="video-thumb-img">
-                    
-                  </div>
+              <!-- Karta 5: Zamčená -->
+              <div class="video-card locked">
+                <div class="video-thumbnail">
+                  <img src="./img/video-paceholder.webp" alt="Výzva 5 - Již brzy" class="video-thumb-img">
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="maxa-prize-section">
-          <div class="container prize-container">
-            <h2 class="section-title">HLAVNÍ VÝHRA</h2>
-            <div class="prize-content-wrapper">
-              <div class="prize-circle">
-                  <div class="circle-inner-text">
-                      <h3>VYHRAJTE ZAJEZD DO LIVERPOOLU S&nbsp;PATRIKEM BERGEREM!</h3>
-                      <p>Hlasujte a&nbsp;buďte ve&nbsp;hře. Jednoho z&nbsp;tipujících vylosujeme a&nbsp;vyšleme za fotbalovým zážitkem!</p>
-                  </div>
-              </div>
-              <div class="buttons-prize-inner">
-                <a href="#" class="btn-discover" target="_blank" rel="noopener">ZJISTIT VÍCE</a>
-              </div>
+      <section class="maxa-prize-section">
+        <div class="container prize-container">
+          <h2 class="section-title">HLAVNÍ VÝHRA</h2>
+          <div class="prize-content-wrapper">
+            <div class="prize-circle">
+                <div class="circle-inner-text">
+                    <h3>VYHRAJTE ZAJEZD DO LIVERPOOLU S&nbsp;PATRIKEM BERGEREM!</h3>
+                    <p>Hlasujte a&nbsp;buďte ve&nbsp;hře. Jednoho z&nbsp;tipujících vylosujeme a&nbsp;vyšleme za fotbalovým zážitkem!</p>
+                </div>
+            </div>
+            <div class="buttons-prize-inner">
+              <a href="#" class="btn-discover" target="_blank" rel="noopener">ZJISTIT VÍCE</a>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     </main>
 
     <!-- ZACATEK: PATICKA (FOOTER) -->
