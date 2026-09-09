@@ -1280,7 +1280,7 @@ body.maxa-trefa {
 }
 .maxa-trefa .prize-container::after {
 	display: block;
-	right: -36px;
+	right: -20px;
 	bottom: -80px;
 	width: 135px;
 	height: 220px;
