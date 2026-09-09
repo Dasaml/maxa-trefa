@@ -33,6 +33,7 @@ body.maxa-trefa {
 	background: radial-gradient(circle at 15% 10%, rgba(96, 0, 191, 0.9) 0%, rgba(51, 0, 123, 0.4) 50%, transparent 70%),linear-gradient(135deg, #6000BF 0%, #33007B 60%, #1a0038 100%);
     background-attachment: fixed;
 	scroll-behavior: smooth;
+	overflow-x:hidden;
 }
 .maxa-trefa .title-h1 {
 	color: #fff;
