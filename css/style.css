@@ -180,7 +180,7 @@ body.maxa-trefa {
 	transition: transform 0.2s;
 	transition: transform 0.2s, -webkit-transform 0.2s;
 	z-index: 99;
-	background: #502983;
+	background: radial-gradient(circle at 15% 10%, rgba(96, 0, 191, 0.9) 0%, rgba(51, 0, 123, 0.4) 50%, transparent 70%),linear-gradient(135deg, #6000BF 0%, #33007B 60%, #1a0038 100%);
 	color: #fff;
 	list-style: none;
 	padding-top: 4rem;
@@ -200,7 +200,7 @@ body.maxa-trefa {
 	height: auto;
 	width: 100%;
 	z-index: 99;
-	background-color: #502983;
+	background: radial-gradient(circle at 15% 10%, rgba(96, 0, 191, 0.9) 0%, rgba(51, 0, 123, 0.4) 50%, transparent 70%),linear-gradient(135deg, #6000BF 0%, #33007B 60%, #1a0038 100%);
 }
 .maxa-trefa .navigation-wrapper-mobile .navigation-modify-container {
 	display: -webkit-box;
@@ -1248,7 +1248,7 @@ body.maxa-trefa {
 .maxa-trefa .maxa-prize-section {
     width: 100%;
     position: relative;
-    padding: 50px 20px;
+    padding: 50px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
