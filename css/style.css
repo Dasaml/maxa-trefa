@@ -1233,7 +1233,7 @@ body.maxa-trefa {
 .maxa-trefa .video-thumb-img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .maxa-trefa .video-thumbnail iframe {
